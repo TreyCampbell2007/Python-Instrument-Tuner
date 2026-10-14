@@ -23,6 +23,8 @@ while (True):
     # Perform FFT
     spectrum = np.fft.fft(audio)
     frequencies = np.fft.fftfreq(len(audio), 1 / 44100)
+
+    time = np.arange(0, len(audio)) / 44100
     
     # Plot the frequency spectrum
     plt.plot(frequencies, np.abs(spectrum))
@@ -33,8 +35,8 @@ while (True):
     # Plot the signal
     '''
     plt.plot(time,audio)
-    plt.xlabel('Time')
+    plt.xlabel('Time (s)')
     plt.ylabel('Magnitude')
 
-    plt.plot()
+    plt.show()
     '''
