@@ -11,31 +11,44 @@ import numpy as np
 from scipy.fft import fft, ifft, fftfreq
 import matplotlib.pyplot as plt
 
-# Create a time vector
+# Choose how many times we sample the signal over the time interval
 sampleRate = 1000
 
-# Creates a list of values that are equally from the initial value to the final value
+# Creates a list of values that are equally spaced from the initial value to the final value
 time = np.linspace(0, 1, sampleRate, endpoint=False) 
 
-# Composite signal: sine + cosine
-signal =  0.5 * np.sin(2 * np.pi * 120 * time) + 5 * np.cos(2 * np.pi * 20 * time) + np.sin(2*np.pi*time)
+# The desired frequency that I want to produce
+frequency = 30
+
+# Composite signal: Sin
+signal =  0.5 * np.sin(2 * np.pi * frequency * time)
+
+# Create noise and add to the signal
+noise = 0.5 * np.random.random(sampleRate)
+signal = signal + noise
 
 # FFT and inverse FFT
 N = len(time)
-yf = fft(signal)
-xf = fftfreq(N, 1/sampleRate)
+yf = fft(signal) 
+xf = fftfreq(N, 1/(sampleRate)) 
 
-# Need to look into why they do this to xf and yf?
+# Gets only the real numbers output from the FFT algorithm
 xf = xf[:N//2]
 yf = 2.0/N * np.abs(yf[:N//2])
-
-print(max(yf))
 
 # Visualization
 plt.figure(figsize=(10, 4))
 
+# Signal
+plt.subplot(1,2,1)
+plt.plot(time,signal)
+plt.title("Input Signal")
+plt.xlabel("Time")
+plt.ylabel("Amplitude")
+
 # FFT output utilizing matplotlib
-plt.subplot(1, 1, 1)
+plt.subplot(1,2,2)
+plt.xlim(10,50)
 plt.plot(xf,yf)
 plt.title("Frequency Spectrum")
 plt.xlabel("Frequency (Hz)")
