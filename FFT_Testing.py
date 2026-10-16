@@ -1,7 +1,8 @@
 '''
 FFT_Testing.py
 
-A file utilized for testing my understanding of FFTs and working the with matplotlib extension
+A file utilized for testing my understanding of FFTs and working the with matplotlib extension. Also
+utilized to create the example fourier transform files that are in the readme.
 
 This file specifically follows a tutorial from GeeksForGeeks going over the discrete fourier trasform:
 https://www.geeksforgeeks.org/data-analysis/discrete-fourier-transform-dft-using-scipy/
@@ -24,7 +25,7 @@ frequency = 30
 signal =  0.5 * np.sin(2 * np.pi * frequency * time)
 
 # Create noise and add to the signal
-noise = 0.5 * np.random.random(sampleRate)
+noise = 1* np.random.randn(len(time)) #notice .randn()
 signal = signal + noise
 
 # FFT and inverse FFT
@@ -48,7 +49,7 @@ plt.ylabel("Amplitude")
 
 # FFT output utilizing matplotlib
 plt.subplot(1,2,2)
-plt.xlim(10,50)
+plt.xlim(10, 90)
 plt.plot(xf,yf)
 plt.title("Frequency Spectrum")
 plt.xlabel("Frequency (Hz)")
