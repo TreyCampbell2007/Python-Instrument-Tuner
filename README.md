@@ -1,6 +1,6 @@
 # Python-Instrument-Tuner
 ### Project Goals
-Take a microphone input from the user utilizing PyAudio, which will then run through a DSP algorithm that processes the frequency and returns that musical note that is being produced along with how many cents off the note is from being in tune. The program should be able to run in real time and process signals consistently, with accuracy.
+Take a microphone input from the user utilizing PyAudio, which will then run through a Digital Signal Processing (DSP) algorithm that processes the frequency and returns that musical note that is being produced along with how many cents off the note is from being in tune. The program should be able to run in real time and process signals consistently, with accuracy.
 
 ### Personal Goals
 - Get familiar with the use of fourier transforms for processing signal data
