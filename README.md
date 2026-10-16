@@ -27,7 +27,7 @@
 
   In the above example, we have a signal of 10 Hz displayed on the left, and the product of the fourier transform graphed on the right, where we can see that the only signal it detects being the 10Hz. Hopefully, this is where it kind of clicks how a tuner is possible to create. Since we can imagine a graph on the right that has a bunch of signals of varying amplitudes of which we can choose which signal to process depending on their amplitudes. 
 
-  Here's an example of a 30 Hz with some added noise could look like and what the FFT could produce:
+  Here's an example of a 30 Hz signal with some added noise could look like and what the FFT could produce:
 
 <img width="997" height="398" alt="Screenshot 2026-10-16 183919" src="https://github.com/user-attachments/assets/80ce88db-0bd8-43ac-99a3-23f8cb64576e" />
 
