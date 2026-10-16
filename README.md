@@ -33,7 +33,7 @@ Here's an example of a 30 Hz signal with some added noise could look like and wh
 
 ## Simulation
 To start off this project, I want to do two things:
-- Simulate signals similar to what the microphone would input, such as simulating specific frequencies and noise
+- Simulate signals similar to what the microphone would input, such as simulating specific frequencies and noise (Partially done above for example, but want to test more to improve accuracy to real microphone inputs).
 - Test DSP algorithms on these simulated signals to understand problems that could occur when processing actual signals
 
 
