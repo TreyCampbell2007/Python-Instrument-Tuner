@@ -36,4 +36,6 @@ To start off this project, I want to do two things:
 - Simulate signals similar to what the microphone would input, such as simulating specific frequencies and noise (Partially done above for example, but want to test more to improve accuracy to real microphone inputs).
 - Test DSP algorithms on these simulated signals to understand problems that could occur when processing actual signals
 
+The simulation for this will be done on the TunerSimulator.py file in the testing folder.
+
 
