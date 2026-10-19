@@ -33,7 +33,7 @@ signal = signal + noise
 
 # Now we want to go through the signal and process each individual window
 
-window_size = 4096
+window_size = 4096 
 
 frame = signal[0:window_size]
 jump = 1024
@@ -43,4 +43,18 @@ for start in range(0, len(signal) - window_size, jump):
     frame = signal[start:start + window_size]
     # Now we can analyze that individual frame
 
-    print(frame.argmax())
+    spectrum = np.abs(np.fft.rfft(frame)) # does an FFT on that frame
+    peak_bin = np.argmax(spectrum) # finds the highest bin of the spectrum
+
+    freq = peak_bin * fs/window_size # Takes the bin number and returns its frequency
+    print(freq) # The frequncy isn't exact due to sampling bin sizes
+
+    # Converts to MIDI for easier calculation of notes
+    # Utilizes A4 (440 Hz) as an anchor point
+    midi = 69 + 12 * np.log2(freq / 440)               # note number (A4 = 69)
+    nearest = round(midi)
+    cents = (midi - nearest) * 100                     # how sharp/flat
+    closest_freq = 440 * pow(2,(nearest-69)/12)
+
+    # Notice how, although it should be the exact frequency, it isn't detecting the frequency correctly
+    print(f"{cents} away from {closest_freq}")
